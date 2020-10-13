@@ -8,6 +8,7 @@ namespace TicTacToeGame
      class TicTacToeGame
     {
         public char[] board;
+        public enum Player { USER, COMPUTER };
         public TicTacToeGame()
         {
             board = new char[10];
@@ -21,7 +22,7 @@ namespace TicTacToeGame
         }
         public char Choice()
         {
-            Console.WriteLine("Enter your choice. \nX \n0");
+            Console.WriteLine("Enter your choice. \nX or 0");
             char userSign = Convert.ToChar(Console.ReadLine());
             string choice;
             switch (userSign)
@@ -59,7 +60,6 @@ namespace TicTacToeGame
                 return true;
             else
             {
-                Console.WriteLine("Position already occupied");
                 return false;
             }
         }
@@ -75,8 +75,24 @@ namespace TicTacToeGame
             }
             else
             {
+                Console.WriteLine("Position already occupied");
                 Console.WriteLine("Try Again");
                 PlayerMovement(choice);
+            }
+        }
+        public Player Toss()
+        {
+            Random random = new Random();
+            int toss = random.Next(1, 3);
+            if (toss == 1)
+            {
+                Console.WriteLine("User will begin");
+                return Player.USER;
+            }
+            else
+            {
+                Console.WriteLine("Computer will begin");
+                return Player.COMPUTER;
             }
         }
     }

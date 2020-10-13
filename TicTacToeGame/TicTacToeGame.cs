@@ -23,7 +23,6 @@ namespace TicTacToeGame
         {
             Console.WriteLine("Enter your choice. \nX \n0");
             char userSign = Convert.ToChar(Console.ReadLine());
-            char usersign = (Console.ReadLine()).ToUpper()[0];
             string choice;
             switch (userSign)
             {
